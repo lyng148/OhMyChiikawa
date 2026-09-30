@@ -51,6 +51,10 @@
       zh: ['哼哼～', '诶嘿嘿', '可爱吧？', '我也要！'],
       en: ['Hehe~', 'Ehehe', 'Cute, right?', 'Me too!'],
       ja: ['ふふん～', 'えへへ', 'かわいいでしょ？', 'ぼくも！']
+    },
+    sounds: {
+      speech: ['sounds/momonga/homero.mp3', 'sounds/momonga/sparkle.mp3'],
+      actions: { roll: 'sounds/momonga/yada.mp3' }
     }
   };
   var api = (typeof window !== 'undefined') ? window : globalThis;

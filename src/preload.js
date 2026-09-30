@@ -29,5 +29,6 @@ contextBridge.exposeInMainWorld('petAPI', {
   onWalk: (cb) => ipcRenderer.on('pet:walk', (_e, v) => cb(v)),
   onWalkStop: (cb) => ipcRenderer.on('pet:walk-stop', () => cb()),
   onScale: (cb) => ipcRenderer.on('scale:set', (_e, h) => cb(h)),
-  onLang: (cb) => ipcRenderer.on('pet:lang', (_e, l) => cb(l))
+  onLang: (cb) => ipcRenderer.on('pet:lang', (_e, l) => cb(l)),
+  onSound: (cb) => ipcRenderer.on('sound:config', (_e, cfg) => cb(cfg))
 });

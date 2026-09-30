@@ -65,6 +65,34 @@ const SCALES = { small: 150, medium: 200, large: 270 }; // pet display height (p
 let scaleName = argValue('scale', 'medium');
 if (!SCALES[scaleName]) scaleName = 'medium';
 
+// Sound & volume settings (persisted, switchable via menu / CLI)
+let soundEnabled = prefs.sound !== false; // default enabled
+if (process.argv.includes('--no-sound') || process.argv.includes('--sound=0') || process.argv.includes('--sound=false')) {
+  soundEnabled = false;
+} else if (process.argv.includes('--sound') || process.argv.includes('--sound=1') || process.argv.includes('--sound=true')) {
+  soundEnabled = true;
+}
+let soundVolume = typeof prefs.volume === 'number' ? prefs.volume : 0.75;
+const cliVol = argValue('volume', null);
+if (cliVol !== null) {
+  const parsed = parseFloat(cliVol);
+  if (!isNaN(parsed)) soundVolume = Math.max(0, Math.min(1, parsed));
+}
+
+function setSoundEnabled(val) {
+  soundEnabled = !!val;
+  prefs.sound = soundEnabled;
+  savePrefs();
+  if (win) win.webContents.send('sound:config', { enabled: soundEnabled, volume: soundVolume });
+}
+
+function setSoundVolume(val) {
+  soundVolume = Math.max(0, Math.min(1, Number(val)));
+  prefs.volume = soundVolume;
+  savePrefs();
+  if (win) win.webContents.send('sound:config', { enabled: soundEnabled, volume: soundVolume });
+}
+
 // ---------- runtime state ----------
 let win = null;
 const settings = { follow: true, wander: true, onTop: true };
@@ -112,8 +140,9 @@ function createWindow() {
   if (process.platform === 'darwin' && app.dock) app.dock.hide();
   try { win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true }); } catch (e) {}
 
-  // loadFile handles platform path differences (Windows backslashes etc.)
-  win.loadFile(path.join(__dirname, 'index.html'), { query: { pet: currentPet, scale: scaleName, lang } });
+  win.loadFile(path.join(__dirname, 'index.html'), {
+    query: { pet: currentPet, scale: scaleName, lang, sound: soundEnabled ? '1' : '0', volume: String(soundVolume) }
+  });
 
   // start click-through; the renderer turns it off while the cursor is on the pet
   win.setIgnoreMouseEvents(true, { forward: true });
@@ -343,7 +372,9 @@ function switchPet(id) {
   if (!win || id === currentPet || !PET_LABELS[id]) return;
   currentPet = id;
   prefs.pet = id; savePrefs();
-  win.loadFile(path.join(__dirname, 'index.html'), { query: { pet: currentPet, scale: scaleName, lang } });
+  win.loadFile(path.join(__dirname, 'index.html'), {
+    query: { pet: currentPet, scale: scaleName, lang, sound: soundEnabled ? '1' : '0', volume: String(soundVolume) }
+  });
 }
 
 // Switch the menu / speech language. The menu rebuilds on next open; the renderer
@@ -375,6 +406,27 @@ ipcMain.on('menu:open', () => {
         { label: '中文', type: 'radio', checked: lang === 'zh', click: () => setLang('zh') },
         { label: 'English', type: 'radio', checked: lang === 'en', click: () => setLang('en') },
         { label: '日本語', type: 'radio', checked: lang === 'ja', click: () => setLang('ja') }
+      ]
+    },
+    {
+      label: t('声音', 'Sound', '音声'),
+      submenu: [
+        {
+          label: t('开启声音', 'Enable sound', '音声を有効化'),
+          type: 'checkbox',
+          checked: soundEnabled,
+          click: () => setSoundEnabled(!soundEnabled)
+        },
+        { type: 'separator' },
+        {
+          label: t('音量', 'Volume', '音量'),
+          submenu: [
+            { label: '25%', type: 'radio', checked: Math.abs(soundVolume - 0.25) < 0.05, click: () => setSoundVolume(0.25) },
+            { label: '50%', type: 'radio', checked: Math.abs(soundVolume - 0.50) < 0.05, click: () => setSoundVolume(0.50) },
+            { label: '75%', type: 'radio', checked: Math.abs(soundVolume - 0.75) < 0.05, click: () => setSoundVolume(0.75) },
+            { label: '100%', type: 'radio', checked: Math.abs(soundVolume - 1.00) < 0.05, click: () => setSoundVolume(1.00) }
+          ]
+        }
       ]
     },
     { type: 'separator' },

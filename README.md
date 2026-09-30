@@ -18,6 +18,7 @@ OhMyChiikawa is a lightweight desktop pet for macOS and Windows. After launch, t
 - Drag to place the pet anywhere on the desktop.
 - Part-aware clicks: body hops, ears wiggle, face nods, and paws trigger a hand-rolling action for about 2 seconds (hand-rolling is Usagi-only).
 - Random speech bubbles with per-character Chinese, English, and Japanese lines; Usagi's rolling action uses a fixed line.
+- Character sound effects: Built-in voices for all 4 characters (Usagi's "Yaha!", Chiikawa's chatter, Hachiware's phrases, Momonga's cries); toggle sound on/off and adjust volume (25%, 50%, 75%, 100%) from the context menu.
 - Idle animations: breathing, floating, blinking, and ear movement.
 - Cursor following, toggled from the context menu.
 - Random wandering, toggled from the context menu. Usagi plays a run animation while wandering and turns to face its direction of travel.
@@ -140,6 +141,7 @@ https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-oh
 | Right-click pet | Open the context menu |
 | Menu: Character | Switch between Usagi, Chiikawa, Hachiware, and Momonga (remembered) |
 | Menu: Language | Switch 中文 / English / 日本語 (remembered) |
+| Menu: Sound | Toggle audio on/off and adjust volume (25%, 50%, 75%, 100%) |
 | Menu: Follow cursor | Toggle cursor following |
 | Menu: Wander | Toggle random walking |
 | Menu: Always on top | Toggle always-on-top |

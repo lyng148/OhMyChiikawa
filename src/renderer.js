@@ -226,7 +226,8 @@
     if (name === 'roll') {
       var rollSpeech = a.speech;
       if (rollSpeech && typeof rollSpeech !== 'string') rollSpeech = rollSpeech[lang] || rollSpeech.zh;
-      say(rollSpeech || ROLL_LINE, 2000);
+      say(rollSpeech || ROLL_LINE, 2000, true);
+      playActionSound('roll');
     }
     if (isSeq) { // play the pet's own frames in place -> seamless (idle frame == frame 0)
       var n = pet.frames.count, total = n * (a.loops || 1), i = 0, fps = a.fps || 10, idleIdx = pet.idle || 0;
@@ -370,6 +371,41 @@
     setTimeout(function () { document.body.classList.remove('is-blink'); }, 160);
   }
 
+  // ---------- sound & audio ----------
+  var soundEnabled = params.get('sound') !== '0';
+  var soundVolume = params.has('volume') ? Math.max(0, Math.min(1, parseFloat(params.get('volume')) || 0.8)) : 0.8;
+  var currentAudio = null;
+
+  function playSound(src, mult) {
+    if (!soundEnabled || soundVolume <= 0 || !src) return;
+    try {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      var audio = new Audio(src);
+      audio.volume = Math.max(0, Math.min(1, soundVolume * (mult || 1)));
+      var p = audio.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(function () {});
+      }
+      currentAudio = audio;
+    } catch (e) {}
+  }
+
+  function playRandomSpeechSound() {
+    var sList = pet.sounds && pet.sounds.speech;
+    if (!sList || !sList.length) return;
+    var src = sList[(Math.random() * sList.length) | 0];
+    playSound(src);
+  }
+
+  function playActionSound(actionName) {
+    if (pet.sounds && pet.sounds.actions && pet.sounds.actions[actionName]) {
+      playSound(pet.sounds.actions[actionName]);
+    }
+  }
+
   // ---------- speech bubble ----------
   // Per-language speech. A pet may provide pet.speech as {zh:[],en:[]} (or a plain
   // array = language-neutral); the defaults below are usagi's lines. SPEECH and
@@ -388,12 +424,13 @@
   }
   applyLang();
   var speechTimer = null;
-  function say(text, ms) {
+  function say(text, ms, skipSound) {
     if (!speechEl) return;
     speechTextEl.textContent = text || SPEECH[(Math.random() * SPEECH.length) | 0];
     speechEl.classList.add('show');
     clearTimeout(speechTimer);
     speechTimer = setTimeout(function () { speechEl.classList.remove('show'); }, ms || 1700);
+    if (!skipSound) playRandomSpeechSound();
   }
 
   // ---------- part-aware click reactions ----------
@@ -574,5 +611,13 @@
     window.petAPI.onWalkStop(function () { anim.walking = false; anim.facing = 1; stopRun(); });
     window.petAPI.onScale(function (h) { scaleH = h; layout(); });
     window.petAPI.onLang(function (l) { lang = (['en', 'zh', 'ja'].indexOf(l) >= 0) ? l : 'zh'; applyLang(); });
+    if (window.petAPI.onSound) {
+      window.petAPI.onSound(function (cfg) {
+        if (cfg) {
+          if (cfg.enabled !== undefined) soundEnabled = !!cfg.enabled;
+          if (cfg.volume !== undefined) soundVolume = Math.max(0, Math.min(1, Number(cfg.volume)));
+        }
+      });
+    }
   }
 })();

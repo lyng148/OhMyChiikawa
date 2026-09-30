@@ -51,6 +51,9 @@
       start: 2,
       fps: 11,
       offsetY: [-2, -1, 0, 0, -1, -2, -1, 0, 0, 0, 0, -1]
+    },
+    sounds: {
+      speech: ['sounds/chiikawa/yahaha.mp3', 'sounds/chiikawa/huh.mp3', 'sounds/chiikawa/wuru.mp3']
     }
   };
   var api = (typeof window !== 'undefined') ? window : globalThis;

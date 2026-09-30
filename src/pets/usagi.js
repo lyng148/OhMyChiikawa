@@ -39,7 +39,11 @@
     },
     // Run cycle played while walking across the screen (6 frames re-canvased to a
     // shared 735x960 framing, background removed). Facing is flipped by the renderer.
-    walk: { base: 'images/usagi_run/usagi_run_', count: 6, pad: 2, ext: '.png', start: 1, fps: 9 }
+    walk: { base: 'images/usagi_run/usagi_run_', count: 6, pad: 2, ext: '.png', start: 1, fps: 9 },
+    sounds: {
+      speech: ['sounds/usagi/yaha.mp3', 'sounds/usagi/huh.mp3'],
+      actions: { roll: 'sounds/usagi/roll.mp3' }
+    }
   };
   var api = (typeof window !== 'undefined') ? window : globalThis;
   api.PetRegistry = api.PetRegistry || {

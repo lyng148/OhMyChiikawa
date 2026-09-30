@@ -51,6 +51,9 @@
     walk: { base: 'images/hachiware_run/hachiware_run_', count: 11, pad: 2, ext: '.png', start: 1, fps: 9 },
     actions: {
       hop: { base: 'images/hachiware_jump/hachiware_jump_', count: 4, pad: 2, ext: '.png', start: 1, fps: 8, loops: 4, scale: 1, height: 0.45 }
+    },
+    sounds: {
+      speech: ['sounds/hachiware/wakannai.mp3', 'sounds/hachiware/oi.mp3']
     }
   };
   var api = (typeof window !== 'undefined') ? window : globalThis;
