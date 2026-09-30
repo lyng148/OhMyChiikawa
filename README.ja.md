@@ -1,6 +1,6 @@
 # OhMyChiikawa
 
-**言語:** [简体中文](README.md) | [English](README.en.md) | [日本語](README.ja.md)
+**言語:** [English](README.md) | [简体中文](README.zh.md) | [日本語](README.ja.md)
 
 OhMyChiikawa は macOS と Windows 向けの軽量デスクトップペットです。起動すると、既定のキャラクター **うさぎ** がデスクトップに表示されます。右クリックメニューから **ちいかわ**、**ハチワレ**、**モモンガ** にいつでも切り替えられます。4 つのキャラクターはドラッグ移動、部位ごとのクリック反応、カーソル追従、ときどき散歩、待機中のまばたきや耳の小さな揺れに対応しています。
 
@@ -106,14 +106,14 @@ ChatGPT/Codex デスクトップアプリまたは Codex CLI を使用してい�
 4 種類すべてをインストール：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
+curl -fsSL https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
   | bash -s -- all --remote
 ```
 
 1 種類だけをインストール（以下はうさぎの例）：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
+curl -fsSL https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
   | bash -s -- usagi --remote
 ```
 
@@ -124,7 +124,7 @@ curl -fsSL https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_
 次の Skill URL を Codex に直接渡し、インストール手順に従うよう依頼することもできます。
 
 ```text
-https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/SKILL.md
+https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/SKILL.md
 ```
 
 ## 基本操作

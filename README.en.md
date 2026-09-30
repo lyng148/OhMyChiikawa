@@ -1,6 +1,6 @@
 # OhMyChiikawa
 
-**Language:** [简体中文](README.md) | [English](README.en.md) | [日本語](README.ja.md)
+**Language:** [English](README.md) | [简体中文](README.zh.md) | [日本語](README.ja.md)
 
 OhMyChiikawa is a lightweight desktop pet for macOS and Windows. After launch, the default character **Usagi** appears on your desktop, and you can switch to **Chiikawa**, **Hachiware**, or **Momonga** anytime from the right-click menu. All four characters can be dragged around, clicked on different body parts, follow the cursor, wander occasionally, and play idle animations such as blinking and subtle ear movement.
 
@@ -106,14 +106,14 @@ If you use the ChatGPT/Codex desktop app or Codex CLI, you can install Codex pet
 Install all four pets:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
+curl -fsSL https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
   | bash -s -- all --remote
 ```
 
 Install a single pet (Usagi in this example):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
+curl -fsSL https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/scripts/install.sh \
   | bash -s -- usagi --remote
 ```
 
@@ -124,7 +124,7 @@ After installation, open Settings → Pets, select Refresh, and choose the new p
 You can also give the following Skill URL directly to Codex and ask it to follow the installation instructions:
 
 ```text
-https://raw.githubusercontent.com/WayneYe912/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/SKILL.md
+https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-ohmychiikawa-pets/SKILL.md
 ```
 
 ## Basic Usage
