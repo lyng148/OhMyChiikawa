@@ -1,0 +1,46 @@
+OhMyChiikawa — Desktop Pet for Windows
+========================================
+
+Thank you for downloading OhMyChiikawa!
+
+QUICK START
+  1. Run the installer (OhMyChiikawa-<version>-win-x64.exe) and follow
+     the setup wizard.
+  2. After installation, launch OhMyChiikawa from the Start Menu or
+     Desktop shortcut.
+  3. The pet (Usagi) will appear on your desktop. Right-click for the
+     context menu to switch characters, change size, or adjust settings.
+
+PORTABLE VERSION
+  If you downloaded the portable version, just extract the archive and
+  run OhMyChiikawa.exe — no installation required.
+
+COMMAND-LINE LAUNCHER (optional)
+  During installation the setup wizard offers to add the `chiikawa`
+  command to your PATH. If you said Yes, just open a NEW command prompt
+  or PowerShell window and run:
+    chiikawa
+    chiikawa --size small
+    chiikawa --pet usagi
+  If you skipped that step, run install-cli.bat from the installation
+  directory (resources\packaging\win\) to set it up later.
+  No Node.js required — chiikawa simply launches OhMyChiikawa.exe.
+
+RUNNING FROM SOURCE
+  If you prefer to run from source, clone the repository and run:
+    npm install
+    npm start
+  Requires Node.js 18+ and npm 9+.
+
+USAGE
+  | Action          | Result                              |
+  | --------------- | ----------------------------------- |
+  | Drag the pet    | Move it anywhere on the desktop     |
+  | Click body      | Hop and say a random line           |
+  | Click ear       | Wiggle that ear                     |
+  | Click face      | Nod the head                        |
+  | Click arm       | Roll hands (usagi only)             |
+  | Double-click    | Roll hands (usagi only)             |
+  | Right-click     | Open the context menu               |
+
+For more details, visit the project repository.

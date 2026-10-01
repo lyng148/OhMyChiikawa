@@ -1,0 +1,26 @@
+OhMyChiikawa — Desktop Pet for macOS
+======================================
+
+Thank you for downloading OhMyChiikawa!
+
+QUICK START
+  1. Drag the OhMyChiikawa icon into the Applications folder.
+  2. Open Applications, right-click OhMyChiikawa, and choose "Open".
+     (macOS may show a warning on first launch — this is normal.)
+  3. If macOS still blocks the app, run this in Terminal:
+     xattr -dr com.apple.quarantine /Applications/OhMyChiikawa.app
+
+COMMAND-LINE LAUNCHER (optional)
+  Double-click install-cli.command to install the `chiikawa` command.
+  Then you can start the pet from Terminal:
+    chiikawa
+    chiikawa --size small
+    chiikawa --pet usagi
+
+RUNNING FROM SOURCE
+  If you prefer to run from source, clone the repository and run:
+    npm install
+    npm start
+  Requires Node.js 18+ and npm 9+.
+
+For more details, visit the project repository.

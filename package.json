@@ -1,6 +1,6 @@
 {
   "name": "ohmychiikawa",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Desktop pet for macOS & Windows. Ships with usagi.",
   "main": "src/main.js",
   "bin": {
@@ -97,11 +97,15 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "packaging/icon.png"
