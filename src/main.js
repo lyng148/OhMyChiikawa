@@ -61,7 +61,7 @@ const PET_LABELS = {
 const ROLL_PETS = new Set(['usagi']);           // pets that have the hand-roll action
 const PET_SPEED = { usagi: 3, chiikawa: 2, hachiware: 2, momonga: 2 }; // walk speed px/tick (16ms); default 2
 const petLabel = (id) => (PET_LABELS[id] ? PET_LABELS[id][lang] : id);
-const SCALES = { small: 150, medium: 200, large: 270 }; // pet display height (px)
+const SCALES = { tiny: 75, small: 150, medium: 200, large: 270 }; // pet display height (px)
 let scaleName = argValue('scale', 'medium');
 if (!SCALES[scaleName]) scaleName = 'medium';
 
@@ -445,8 +445,13 @@ ipcMain.on('menu:open', () => {
     { type: 'separator' },
     {
       label: t('大小', 'Size', 'サイズ'),
-      submenu: ['small', 'medium', 'large'].map((s) => ({
-        label: { small: t('小', 'Small', '小'), medium: t('中', 'Medium', '中'), large: t('大', 'Large', '大') }[s],
+      submenu: ['tiny', 'small', 'medium', 'large'].map((s) => ({
+        label: {
+          tiny: t('极小', 'Tiny', '極小'),
+          small: t('小', 'Small', '小'),
+          medium: t('中', 'Medium', '中'),
+          large: t('大', 'Large', '大')
+        }[s],
         type: 'radio', checked: scaleName === s,
         click: () => { scaleName = s; if (win) win.webContents.send('scale:set', SCALES[s]); }
       }))

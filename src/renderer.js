@@ -24,7 +24,7 @@
   var geometry = window.PetGeometry;
   var earHit = window.PetEarHit;
 
-  var SCALES = { small: 150, medium: 200, large: 270 };
+  var SCALES = { tiny: 75, small: 150, medium: 200, large: 270 };
   var PAD = { top: 0.30, bottom: 0.06, side: 0.24 };
 
   // ---------- resolve pet ----------

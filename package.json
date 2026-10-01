@@ -1,6 +1,6 @@
 {
   "name": "ohmychiikawa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Desktop pet for macOS & Windows. Ships with usagi.",
   "main": "src/main.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "node tests/chiikawa-run.test.js && node tests/ear-animation.test.js && node tests/momonga-roll.test.js && node tests/sound.test.js",
+    "test": "node tests/chiikawa-run.test.js && node tests/ear-animation.test.js && node tests/momonga-roll.test.js && node tests/sound.test.js && node tests/scale.test.js",
     "usagi": "electron . --pet=usagi",
     "chiikawa": "node chiikawa.js",
     "dist": "electron-builder --mac dmg --arm64 --x64",

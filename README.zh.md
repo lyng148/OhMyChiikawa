@@ -23,7 +23,7 @@ OhMyChiikawa 是一个轻量的桌面宠物，支持 macOS 和 Windows。启动�
 - 鼠标跟随：角色会朝鼠标方向看，可在右键菜单中开关。
 - 自动走动：角色会不定时在桌面上散步，可在右键菜单中开关。乌萨奇散步时会播放跑步动画，并随移动方向左右转向。
 - 透明区域穿透：角色周围的透明区域不会挡住后面的窗口。
-- 小、中、大三种显示尺寸；不同角色在同一尺寸档下视觉大小保持一致。
+- 极小（比小号缩小 50%）、小、中、大四种显示尺寸；不同角色在同一尺寸档下视觉大小保持一致。
 
 ## 安装与启动
 
@@ -49,6 +49,7 @@ OhMyChiikawa 是一个轻量的桌面宠物，支持 macOS 和 Windows。启动�
 
 ```bash
 chiikawa
+chiikawa --scale=tiny
 chiikawa --scale=small
 chiikawa --scale=medium
 chiikawa --scale=large
@@ -145,7 +146,7 @@ https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-oh
 | 菜单：跟随鼠标 | 开启或关闭鼠标跟随 |
 | 菜单：四处走动 | 开启或关闭自动散步 |
 | 菜单：总在最前 | 开启或关闭置顶显示 |
-| 菜单：大小 | 切换小、中、大尺寸 |
+| 菜单：大小 | 切换极小、小、中、大尺寸 |
 | 菜单：跳一下 / 转手 | 手动触发动作（转手仅乌萨奇） |
 | 菜单：退出 | 关闭 OhMyChiikawa |
 

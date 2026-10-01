@@ -7,7 +7,7 @@
  * devDependency. On `start` it checks the project's dependencies are present and
  * runs `npm install` automatically if anything is missing.
  *
- *   ./chiikawa.js [start] [--pet <id>] [--size small|medium|large]
+ *   ./chiikawa.js [start] [--pet <id>] [--size tiny|small|medium|large]
  *   ./chiikawa.js pets        list the bundled pets
  *   ./chiikawa.js version     print the version
  *   ./chiikawa.js help        show usage
@@ -20,7 +20,7 @@ const path = require('path');
 
 const ROOT = __dirname;
 const pkg = require(path.join(ROOT, 'package.json'));
-const SIZES = ['small', 'medium', 'large'];
+const SIZES = ['tiny', 'small', 'medium', 'large'];
 const MIN_NODE_MAJOR = 18;
 
 // Bundled pets are the files in src/pets/ minus the shared registry.
@@ -84,7 +84,7 @@ Usage:
 
 Options (for start):
   -p, --pet  <id>                      which pet to show        (default: usagi)
-  -s, --size <small|medium|large>      on-screen size           (default: medium)
+  -s, --size <tiny|small|medium|large> on-screen size           (default: medium)
 
 Examples:
   chiikawa

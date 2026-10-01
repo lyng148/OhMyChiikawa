@@ -9,7 +9,7 @@
 .PARAMETER Pet
   Which pet to show (usagi or chiikawa). Default: usagi.
 .PARAMETER Size
-  On-screen size: small, medium, or large. Default: medium.
+  On-screen size: tiny, small, medium, or large. Default: medium.
 .EXAMPLE
   .\chiikawa.ps1
   .\chiikawa.ps1 --size small

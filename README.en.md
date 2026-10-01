@@ -23,7 +23,7 @@ OhMyChiikawa is a lightweight desktop pet for macOS and Windows. After launch, t
 - Cursor following, toggled from the context menu.
 - Random wandering, toggled from the context menu. Usagi plays a run animation while wandering and turns to face its direction of travel.
 - Click-through transparent area around the pet.
-- Small, medium, and large display sizes; characters keep a consistent on-screen size at the same setting.
+- Tiny (50% smaller than small), small, medium, and large display sizes; characters keep a consistent on-screen size at the same setting.
 
 ## Install and Launch
 
@@ -49,6 +49,7 @@ If the `chiikawa` command is enabled on your system, you can also launch from Te
 
 ```bash
 chiikawa
+chiikawa --scale=tiny
 chiikawa --scale=small
 chiikawa --scale=medium
 chiikawa --scale=large
@@ -145,7 +146,7 @@ https://raw.githubusercontent.com/lyng148/OhMyChiikawa/main/codex_pet/install-oh
 | Menu: Follow cursor | Toggle cursor following |
 | Menu: Wander | Toggle random walking |
 | Menu: Always on top | Toggle always-on-top |
-| Menu: Size | Switch small, medium, or large size |
+| Menu: Size | Switch tiny, small, medium, or large size |
 | Menu: Hop / Roll hands | Trigger actions manually (rolling is Usagi-only) |
 | Menu: Quit | Close OhMyChiikawa |
 

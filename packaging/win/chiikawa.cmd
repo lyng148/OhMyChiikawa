@@ -12,7 +12,7 @@ rem   chiikawa --size small
 rem   chiikawa --pet usagi -s large
 rem
 rem This is a thin wrapper around OhMyChiikawa.exe — it needs NO Node.js.
-rem The friendly --size / -s flag (small|medium|large) is mapped onto the
+rem The friendly --size / -s flag (tiny|small|medium|large) is mapped onto the
 rem app's --scale flag; --pet / -p and any other arguments pass straight
 rem through to the executable.
 rem
@@ -57,7 +57,7 @@ exit /b 0
 echo OhMyChiikawa - desktop pet launcher
 echo.
 echo Usage:
-echo   chiikawa [--pet ^<usagi^|chiikawa^>] [--size ^<small^|medium^|large^>]
+echo   chiikawa [--pet ^<usagi^|chiikawa^>] [--size ^<tiny^|small^|medium^|large^>]
 echo.
 echo Examples:
 echo   chiikawa
